@@ -94,9 +94,9 @@ install.packages('writexl')
 
 library(readxl)
 
-# Carga de datos desde archivo de Excel
+# Load data from local Excel File
 hojas <- excel_sheets(path = '2023_CALIFICACION_ACTIVIDADES_R.xlsx')
-hojas <- hojas[-1]  # la primera hoja no contiene datos útiles
+hojas <- hojas[-1]  # First sheet does not contain useful info
 print(hojas)
 
 n <- length(hojas)
@@ -112,8 +112,8 @@ rm(datalist)
 df_2023 <- df_2023[complete.cases(df_2023[ , 'EVENTO']),]
 
 
-# Calcular la diferencia de tiempo entre las columnas de inicio/fin de actividad
-# referencia: https://stackoverflow.com/questions/69527810/calculate-time-difference-between-posixct-values
+# Elapsed time in minutes for each observation (activity)
+# Ref: https://stackoverflow.com/questions/69527810/calculate-time-difference-between-posixct-values
 
 library(dplyr)
 library(hms)
@@ -127,11 +127,16 @@ view(df_2023)
 writexl::write_xlsx( df_2023, "df_2023.xlsx" )
 
 
-# Eliminar los casos en los que la columna 'Alimentador' este vacia
-actividades2023 <- df_2023[complete.cases(df_2023[,3]),]
+# Delete observations without 'Alimentador'
+# https://www.statology.org/not-in-r/
+actividades2023 <- subset(df_2023, !(ALIMENTADOR %in% c('·', NA )))
 str(actividades2023)
 
-# Filtrar para ocupar solo las Cuadrillas de GEOPE
 
+# Filter observations, only GEOPE WorkGroups are allowed
+cuadrillas_Mtto <- unique(actividades2023$CUADRILLA)
+cuadrillas_Mtto <- cuadrillas_Mtto[- c(1,8,10,11,12)]
 
+geope_2023 <- subset( actividades2023, actividades2023$CUADRILLA %in% cuadrillas_Mtto  )
 
+unique(geope_2023$ALIMENTADOR)
