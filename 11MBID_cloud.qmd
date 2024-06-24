@@ -1,0 +1,119 @@
+---
+title: "AG1 - Hadoop en EC2"
+format:
+  typst:
+    toc: true
+    toc-title: Contenido
+    section-numbering: 1.1.a
+    papersize: a4
+    margin:
+      x: 2cm
+      y: 2.3cm
+    columns: 1
+    #mainfont: "ubuntu"
+    mainfont: "Montserrat"
+---
+
+```         
+Datos del estudiante 
+
+Nombre:
+Ernesto Vladimir Palacios Merino
+
+Asignatura:
+Cloud Computing - Actividad 1
+```
+
+Fuentes: [Build a Multi-node apache-hadoop cluster](https://www.mssqltips.com/sqlservertip/7877/build-multi-node-apache-hadoop-cluster-aws-ec2)
+
+# Map-Reduce
+
+El objetivo de la presente actividad se centra en la creación, configuración y ejecución de Hadoop:
+
+```         
+Instalar un cluster hadoop multinodos usando AWS EC2
+```
+
+Se ha elegido utilizar como imagen base el sistema operativo **Ubuntu 22.04** por la familiaridad con el sistema y los comandos.
+
+## Creación de las máquinas virtuales EC2
+
+```         
+En esta sección: 
+
+- Creación de cuatro máquinas virtuales 
+- Configurar el acceso remoto por ssh desde afuera en el puerto 22 
+- Configurar el acceso remoto completo interno desde el mismo grupo de seguridad 
+- Tomar nota de las direcciones IP Privadas de cada máquina creada
+```
+
+**Creación de las instancias:**
+
+![Creación de instancias EC2](img/01_Crear_VM.png){fig-align="center" width="18cm"}
+
+Se crean la vez cuatro máquinas con Sistema Operativo: ubuntu 64-bits de tipo `t2.micro` con `8GB SSD`
+
+Se habilita el puerto 22 con la llave SSH `vockey`
+
+![Instancias creadas para Map-Reduce](img/03_instancias.png){width="18cm"}
+
+Más adelante cambiaré los nombres a las instancias para identificarlas adecuadamente.
+
+## Configuración de la seguridad
+
+Luego configuro las reglas Inboud del grupo de seguridad al que pertenecen todas las máquinas virtuales.
+
+![Configuración de seguridad](img/04_Inbound_Rules.png){width="18cm"}
+
+-   El puerto 22 (SSH) puede ser accesado desde el internet, todas las IP, permite conexión remota.
+-   El puerto 9870 (Web) accesado desde el internet, todas las IP, permite visualización remota del clúster.
+-   Todos los puertos abiertos solamente a las máquinas que se encuentan en el mismo grupo de seguridad. En mi caso es la `sg-0436eb08...`
+
+------------------------------------------------------------------------
+
+## Instalación de Hadoop
+
+Para la instalación de **Hadoop** he seguido la guía: `Tema3_InstalacionHadoopStandalone.pdf`
+
+```{bash}
+
+# instalar JAVA-8 en todos los nodos.
+
+sudo apt -y install openjdk-8-jdk-headless
+
+# Descargo Hadoop versión 3.4 solo en el master.
+
+wget https://archive.apache.org/dist/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz
+
+# Descomprimir Hadoop:
+
+tar xzf hadoop-3.4.0.tar.gz
+
+# Lo reubico hasta en local/
+
+sudo mv ha doop-3.4.0 /usr/local/
+
+# Cambio el dueño de la carpeta al usuario por defecto: ubuntu
+
+sudo chown -R ubuntu:ubuntu /usr/local/hadoop-3.4.0
+
+# Verifico la ubicación donde se ha instalado JAVA
+
+readlink -f $(which java)
+
+# en mi caso uso el siguiente directorio: /usr/lib/jvm/java-8-openjdk-amd64
+
+# Edito el fichero: bash.rc
+
+nano ~/.bashrc
+
+# copio al final las siguientes lineas y guardo el archivo desde nano:
+
+export HADOOP_HOME=/usr/local/hadoop-3.4.0
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH=$PATH:$HADOOP_HOME/bin
+
+# finalmente reinicio BASH para que surta efecto los cambios
+
+source ~/.bashrc
+```
