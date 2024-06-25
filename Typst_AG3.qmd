@@ -175,6 +175,20 @@ Una nueva presentación para la gráfica 01. Part to Hole
 
 -   Herramienta en línea: Fluorish, tipo de gráfica: parlamento (360) enlace en la misma imagen.
 
-[![Waffle - Cantidad de Medidores de la EERSSA (en miles)](images/04_Waffle.jpg){fig-alt="Creado con Flourish" width="18cm"}](https://public.flourish.studio/visualisation/17948001/)
+[![Waffle - Cantidad de Medidores de la EERSSA (en miles de medidores)](images/04_Waffle.jpg){fig-alt="Creado con Flourish" width="18cm"}](https://public.flourish.studio/visualisation/17948001/)
 
 # Diverging
+
+![Diverging - Tipo de activdad y su porcentaje dedicada a cada alimentador](images/05_diverging.png){width="18cm"}
+
+**Audiencia:**
+
+-   Esta gráfica esta destinada para formar parte de reportes internos, será analizada por técnicos de la rama eléctrica.
+
+**Objetivo:**
+
+-   Permite tener una idea general de cómo se han distribuido las actividades realizadas por las cuadrillas en cada ramal eléctrico.
+
+**Herramienta:**
+
+-   R - `ggplot` como base se uso el artículo de David Keyes: [**How to Make a Diverging Bar Chart in R**](https://rfortherestofus.com/2021/10/diverging-bar-chart/)

@@ -142,31 +142,102 @@ geope_2023 <- subset( actividades2023, actividades2023$CUADRILLA %in% cuadrillas
 #example
 library(scales)
 
-set.seed(1234)
-school_quality <-
-  tibble(
-    id = seq(1, 300, 1),
-    school = rep(c(
-      "Sabin", "Vernon", "Faubion", "Irvington", "Alameda", "Beverly Cleary"
-    ), 50),
-    opinion = sample(c("Very bad", "Bad", "Good", "Very Good"), 300, replace = TRUE)
-  )
-view(school_quality)
-
-school_quality_summary <- school_quality %>% 
-  group_by(school, opinion) %>% 
-  count(name = "n_answers") %>% 
-  
-  group_by(school) %>% 
-  mutate(percent_answers = n_answers / sum(n_answers)) %>% 
-  ungroup() %>% 
-  mutate(percent_answers_label = percent(percent_answers, accuracy = 1))
-view(school_quality_summary)
-
+# sumary of the data
 ae1 <- geope_2023 %>%
   filter( !is.na(ALIMENTADOR)) %>%
   filter( !is.na(CUENTA)) %>%
   group_by( ALIMENTADOR, CUENTA) %>%
   count( name = "tiempo", wt = MINUTOS ) %>%
-  filter( tiempo > 150 )
+  filter( tiempo > 150 ) %>%
+  group_by(ALIMENTADOR) %>%
+  mutate( percent_time = tiempo / sum(tiempo) ) %>%
+  ungroup() %>%
+  mutate( percent_number = percent( percent_time,accuracy = 1 ))
 view(ae1)
+
+# Basic Plot - no diverging
+ae1 %>%
+  ggplot(aes(x = ALIMENTADOR,
+             y = percent_time,
+             fill = CUENTA)) +
+  geom_col() +
+  geom_text( aes(label = percent_number ),
+             position = position_stack( vjust = 0.5),
+             color = "white",
+             fontface = "bold") +
+  coord_flip() +
+  scale_x_discrete() +
+  scale_fill_viridis_d() + 
+  labs( title = "Distribucion de tiempo en Alimentadores",
+        x = NULL,
+        fill = NULL) +
+  theme_minimal() + 
+  theme( axis.text.x = element_blank(),
+         axis,title = element_blank(),
+         panel.grid = element_blank(),
+         legend.position = "top")
+
+# Positive and negative for Diverging
+ae1_diverging <- ae1 %>%
+  mutate( percent_time = if_else( CUENTA %in% c("511.04.001","511.03.003"), percent_time, -percent_time )) %>%
+  mutate( percent_number = percent(percent_time, accuracy = 1) )
+view(ae1_diverging)
+
+
+# Basic Diverging with negative numbers
+ae1_diverging %>%
+  ggplot(aes(x = ALIMENTADOR,
+             y = percent_time,
+             fill = CUENTA)) +
+  geom_col() +
+  geom_text( aes(label = percent_number ),
+             position = position_stack( vjust = 0.5),
+             color = "white",
+             fontface = "bold") +
+  coord_flip() +
+  scale_x_discrete() +
+  scale_fill_viridis_d() + 
+  labs( title = "Distribucion de tiempo en Alimentadores",
+        x = NULL,
+        fill = NULL) +
+  theme_minimal() + 
+  theme( axis.text.x = element_blank(),
+         axis,title = element_blank(),
+         panel.grid = element_blank(),
+         legend.position = "top")
+
+ae1_good_labels <- ae1_diverging %>%
+  mutate(percent_number = abs( percent_time) ) %>%
+  mutate(percent_number = percent(percent_number, accuracy = 1))
+view(ae1_good_labels)
+
+# Basic Diverging with negative numbers
+ae1_good_labels %>%
+  ggplot(aes(x = ALIMENTADOR,
+             y = percent_time,
+             fill = CUENTA)) +
+  geom_col() +
+  geom_text( aes(label = percent_number ),
+             position = position_stack( vjust = 0.5),
+             color = "white",
+             fontface = "bold") +
+  coord_flip() +
+  scale_x_discrete() +
+  
+  scale_fill_manual( breaks = c("511.04.001","511.04.002","511.03.003",
+                                "511.05.001","511.05.002","521.01.001"),
+                     values = c(
+                       "511.04.001" = "blue3",
+                       "511.04.002" = "green3",
+                       "511.03.003" = "darkblue",
+                       "511.05.001" = "red3",
+                       "511.05.002" = "darkred",
+                       "521.01.001" = "orange"
+                     ))+
+  
+  labs( title = "Distribucion de tiempo en Alimentadores") +
+  theme_minimal() + 
+  theme( axis.text.x = element_blank(),
+         axis,title = element_blank(),
+         panel.grid = element_blank(),
+         legend.position = "top")
