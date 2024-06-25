@@ -95,7 +95,8 @@ install.packages('writexl')
 library(readxl)
 
 # Load data from local Excel File
-hojas <- excel_sheets(path = '2023_CALIFICACION_ACTIVIDADES_R.xlsx')
+file_name = '2023_CALIFICACION_ACTIVIDADES_R.xlsx'
+hojas <- excel_sheets(path = file_name)
 hojas <- hojas[-1]  # First sheet does not contain useful info
 print(hojas)
 
@@ -103,7 +104,7 @@ n <- length(hojas)
 datalist = list()
 
 for (i in 1:n){
-  datalist[[i]] <- read_excel('2023_CALIFICACION_ACTIVIDADES_R.xlsx', sheet = hojas[[i]])
+  datalist[[i]] <- read_excel( file_name , sheet = hojas[[i]])
 }
 df_2023 = do.call(rbind, datalist)
 rm(datalist)
@@ -122,7 +123,6 @@ library(hms)
 df_2023 <- df_2023 %>%
   mutate( MINUTOS = as.numeric(difftime( df_2023$`FECHA FIN`, df_2023$`FECHA INICIO`,units = "mins")))
 
-view(df_2023)
 
 writexl::write_xlsx( df_2023, "df_2023.xlsx" )
 
@@ -139,4 +139,34 @@ cuadrillas_Mtto <- cuadrillas_Mtto[- c(1,8,10,11,12)]
 
 geope_2023 <- subset( actividades2023, actividades2023$CUADRILLA %in% cuadrillas_Mtto  )
 
-unique(geope_2023$ALIMENTADOR)
+#example
+library(scales)
+
+set.seed(1234)
+school_quality <-
+  tibble(
+    id = seq(1, 300, 1),
+    school = rep(c(
+      "Sabin", "Vernon", "Faubion", "Irvington", "Alameda", "Beverly Cleary"
+    ), 50),
+    opinion = sample(c("Very bad", "Bad", "Good", "Very Good"), 300, replace = TRUE)
+  )
+view(school_quality)
+
+school_quality_summary <- school_quality %>% 
+  group_by(school, opinion) %>% 
+  count(name = "n_answers") %>% 
+  
+  group_by(school) %>% 
+  mutate(percent_answers = n_answers / sum(n_answers)) %>% 
+  ungroup() %>% 
+  mutate(percent_answers_label = percent(percent_answers, accuracy = 1))
+view(school_quality_summary)
+
+ae1 <- geope_2023 %>%
+  filter( !is.na(ALIMENTADOR)) %>%
+  filter( !is.na(CUENTA)) %>%
+  group_by( ALIMENTADOR, CUENTA) %>%
+  count( name = "tiempo", wt = MINUTOS ) %>%
+  filter( tiempo > 150 )
+view(ae1)
