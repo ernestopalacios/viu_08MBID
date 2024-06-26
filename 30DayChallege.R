@@ -269,6 +269,8 @@ ggplot(japan_population_millions, aes( x = year, y = japan_population))+
            caption = "Fuente: OECD (2024), Population (indicator)",
         )
 
-
+############
+#07 & 08  Hazards Circular - 
+# data form: https://www.esfi.org/electrical-fatalities-in-the-workplace-2011-2022/
 
   

@@ -212,10 +212,27 @@ Una nueva presentación para la gráfica 01. Part to Hole
 -   R - `ggplot`
 
 {{< pagebreak >}}
-# Hazards
 
-# Circular
+# Hazards - 8 Circular
 
+![Causa de accidentes eléctricos en USA desde el 2011 al 2022](images/07_08_Hazards-Circular.png){width="18cm"}
 
+**Audiencia:**
 
-> [Electrical Fatality Causes as Reported to OSHA](https://www.esfi.org/electrical-fatalities-in-the-workplace-2011-2022/)
+-   Personal técnico / obrero.
+
+**Objetivo:**
+
+-   Dar a conocer las principales causas de accidentes eléctricos en personal que trabaja en redes eléctricas.
+
+**Herramienta:**
+
+-   Excel 365
+
+> Fuente: [Electrical Fatality Causes as Reported to OSHA](https://www.esfi.org/electrical-fatalities-in-the-workplace-2011-2022/)
+
+{{< pagebreak >}}
+
+# Major / Minor
+
+Distribution
