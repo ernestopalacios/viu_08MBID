@@ -241,3 +241,34 @@ ae1_good_labels %>%
          axis,title = element_blank(),
          panel.grid = element_blank(),
          legend.position = "top")
+
+# 6  OECD - Japan Population
+japan_population <- c(104.665,106.100,107.595,109.104,110.573,111.940,113.094,114.165,115.190,116.155,117.060,117.902,118.728,119.536,120.305,121.049,121.660,122.239,122.745,123.205,123.611,124.101,124.567,124.938,125.265,125.570,125.864,126.166,126.486,126.686,126.926,127.291,127.435,127.619,127.687,127.768,127.901,128.033,128.084,128.032,128.057,127.834,127.593,127.414,127.237,127.095,127.042,126.919,126.749,126.555,126.146,125.502,124.947)
+year <- c(1970:2022)
+
+japan_population_millions <- data.frame(year,japan_population)
+
+library(ggplot2)
+library(scales)
+#install.packages("ggpmisc")
+library(ggpmisc)
+
+ggplot(japan_population_millions, aes( x = year, y = japan_population))+
+  geom_area( fill = "pink2", alpha = 0.5 ) +
+  coord_cartesian(ylim = c(80,140)) +
+  geom_line( color = "red4", size = 1) +
+  geom_vline(xintercept = 2010,
+             linetype = 2, color = 1, linewidth = 0.5)+
+  annotate( "text", x = 2005, y = 131, label = "128M en el 2010" )+
+  annotate( "pointrange", x = 2010, y = 128, colour = "red",
+            xmin = 2010, xmax = 2010, linewidth = 0.5) +
+  labs( x = " Años ", y = "Población (millones)" ) +
+  scale_y_continuous(labels = label_dollar(suffix = "M", prefix = "")) +
+  theme_minimal()+
+  labs( title = " Población de Japon desde 1970 hasta 2022 \n",
+           caption = "Fuente: OECD (2024), Population (indicator)",
+        )
+
+
+
+  
