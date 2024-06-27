@@ -1,5 +1,5 @@
 #Google Sheets
-
+install.packages('ggplot2')
 install.packages('googlesheets4')
 install.packages('gsheet')
 install.packages('tidyverse')
@@ -95,7 +95,9 @@ install.packages('writexl')
 library(readxl)
 
 # Load data from local Excel File
-file_name = '2023_CALIFICACION_ACTIVIDADES_R.xlsx'
+setwd("~/GIT/viu_08MBID")
+
+file_name = 'data_xls/2023_CALIFICACION_ACTIVIDADES_R.xlsx'
 hojas <- excel_sheets(path = file_name)
 hojas <- hojas[-1]  # First sheet does not contain useful info
 print(hojas)
@@ -308,3 +310,145 @@ ggplot( major_minor_activities,
         title = " Cantidad de horas dedicadas a actividades Correctivas y Preventivas en el 2023 \n",
         caption = "Órdenes de Trabajo diarias (2023)") +
   theme(plot.title = element_text(size = 18))
+
+#######
+# 10 - Physical
+# Ammount of tools by WorkGroup
+# Load data from local Excel File
+
+library(readxl)
+library(dplyr)
+
+setwd("~/GIT/viu_08MBID")
+file_bienes <- "data_xls/20211129_BIENES_A_CARGO.xlsx"
+
+df_herramientas <- read_excel(file_bienes)
+View(df_herramientas)
+
+# Filter columns and personel of interest
+
+herr_cuadrillas <- df_herramientas %>%
+  select( responsable, descripcion, cantidad ) %>%
+  group_by( responsable ) %>%
+  count( name = "herramientas" )
+View(herr_cuadrillas)
+
+herr_jzz <- herr_cuadrillas %>%
+  filter( responsable == 'LITUMA CORDOVA CESAR RUBEN'     | 
+          responsable == 'GUZMAN BARROS MARCO FERNANDO'     | 
+          responsable == 'BARRAZUETA GONZAGA SERVIO GUILLERMO' |
+          responsable == 'ALEJANDRO PACHAR AGUSTIN EDUARDO' |
+          responsable == 'RIVERA GUAMAN SEGUNDO PATRICIO' |
+          responsable == 'RIOS RIOS FRANCISCO FERNANDO' |
+          responsable == 'LOZANO SIGCHO NAUN ENRIQUE' |
+          responsable == 'QUIROGA ORDONEZ CARLOS HERNAN' |
+          responsable == 'CACAY LUZURIAGA ASDRUBAL HUMBERTO' |
+          responsable == 'AMARI ORDONEZ JUNIOR IVAN' 
+        ) %>%
+  mutate( cuadrilla = case_when( (responsable == 'LITUMA CORDOVA CESAR RUBEN' ) ~ 'Cuadrilla Gualaquiza',
+                                 (responsable == 'GUZMAN BARROS MARCO FERNANDO' ) ~ 'Cuadrilla Gualaquiza',
+                                 (responsable == 'BARRAZUETA GONZAGA SERVIO GUILLERMO') ~ 'Cuadrilla Yantzaza',
+                                 (responsable == 'ALEJANDRO PACHAR AGUSTIN EDUARDO' ) ~ 'Cuadrilla Yantzaza',
+                                 (responsable == 'RIVERA GUAMAN SEGUNDO PATRICIO' ) ~ 'Cuadrilla Zamora',
+                                 (responsable == 'RIOS RIOS FRANCISCO FERNANDO' ) ~ 'Cuadrilla Zamora',
+                                 (responsable == 'LOZANO SIGCHO NAUN ENRIQUE' ) ~ 'Cuadrilla Yacuambi',
+                                 (responsable == 'QUIROGA ORDONEZ CARLOS HERNAN' ) ~ 'Cuadrilla Guayzimi',
+                                 (responsable == 'CACAY LUZURIAGA ASDRUBAL HUMBERTO' ) ~ 'Cuadrilla Guayzimi',
+                                 (responsable == 'AMARI ORDONEZ JUNIOR IVAN' ) ~ 'Cuadrilla El Pangui'
+                                 )) %>%
+  group_by( cuadrilla ) %>% 
+  count( name = "herramientas_cuadrilla" , wt = herramientas)
+
+herr_jzz <- herr_jzz[ order(-herr_jzz$herramientas_cuadrilla), ]
+
+herr_jzz$orden <- c(6:1)
+
+View(herr_jzz)
+
+# Plot : https://r-graph-gallery.com/web-horizontal-barplot-with-labels-the-economist.html
+install.packages('shadowtext')
+
+library(grid)
+library(tidyverse)
+library(shadowtext)
+library('ggplot2')
+
+# The colors
+BLUE <- "#076fa2"
+RED <- "#E3120B"
+BLACK <- "#202020"
+GREY <- "grey50"
+
+#---------------
+ggplot( herr_jzz,
+               aes( y = reorder(cuadrilla, orden),
+                    x = herramientas_cuadrilla))+
+  geom_col(fill = BLUE, width = 0.6) + 
+  
+  scale_x_continuous(
+    limits = c(0, 175),
+    breaks = seq(0, 200, by = 25), 
+    expand = c(0, 5), # The horizontal axis does not extend to either side
+    position = "top"  # Labels are located on the top
+  ) +
+  # The vertical axis only extends upwards 
+  scale_y_discrete(expand = expansion(add = c(0, 0.5))) +
+  theme(
+    # Set background color to white
+    panel.background = element_rect(fill = "white"),
+    # Set the color and the width of the grid lines for the horizontal axis
+    panel.grid.major.x = element_line(color = "#A8BAC4", size = 0.3),
+    # Remove tick marks by setting their length to 0
+    axis.ticks.length = unit(0, "mm"),
+    # Remove the title for both axes
+    axis.title = element_blank(),
+    # Only left line of the vertical axis is painted in black
+    axis.line.y.left = element_line(color = "black"),
+    # Remove labels from the vertical axis
+    axis.text.y = element_blank(),
+    # But customize labels for the horizontal axis
+    axis.text.x = element_text(family = "Econ Sans Cnd", size = 16)
+  ) +
+  
+  geom_shadowtext(
+    data = subset(herr_jzz, herramientas_cuadrilla < 25),
+    aes(herramientas_cuadrilla, y = cuadrilla, label = cuadrilla),
+    hjust = 0,
+    nudge_x = 0.3,
+    colour = BLUE,
+    bg.colour = "white",
+    bg.r = 0.2,
+    family = "Econ Sans Cnd",
+    size = 7
+  ) +
+  geom_text(
+    data = subset(herr_jzz, herramientas_cuadrilla >= 25),
+    aes(0, y = cuadrilla, label = cuadrilla),
+    hjust = 0,
+    nudge_x = 0.3,
+    colour = "white",
+    family = "Econ Sans Cnd",
+    size = 7
+  ) +
+  labs(
+    title = "Herramientas por Cuadrilla",
+    subtitle = "Cantidad de herramientas en inventario al 2022\n",
+    caption = "Fuente: EERSSA 2022"
+  ) + 
+  theme(
+    plot.title = element_text(
+      family = "Econ Sans Cnd", 
+      face = "bold",
+      size = 22
+    ),
+    plot.subtitle = element_text(
+      family = "Econ Sans Cnd",
+      size = 20
+    ),
+    plot.caption = element_text(
+      family = "Econ Sans Cnd", 
+      face = "bold",
+      size = 14
+    )
+  )
+

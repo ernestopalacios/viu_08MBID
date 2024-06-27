@@ -213,7 +213,7 @@ Una nueva presentación para la gráfica 01. Part to Hole
 
 {{< pagebreak >}}
 
-# Hazards 
+# Hazards
 
 # Circular
 
@@ -258,3 +258,22 @@ Una nueva presentación para la gráfica 01. Part to Hole
 {{< pagebreak >}}
 
 # Physical
+
+![Physical - cantidad de herramientas asignadas a cada cuadrilla](images/10_Physical.png){width="16cm"}
+
+**Audiencia:**
+
+-   Personal obrero.
+
+**Objetivo:**
+
+-   Informar al personal la cantidad de herramientas que estan asignadas e inventariadas a cada cuadrilla para el desarollo de las labores diarias.
+
+**Herramienta:**
+
+-   R `ggplot`
+-   Referencia: [Horizontal barplot with R and ggplot2](https://r-graph-gallery.com/web-horizontal-barplot-with-labels-the-economist.html)
+
+{{< pagebreak >}}
+
+# Mobile friendly
