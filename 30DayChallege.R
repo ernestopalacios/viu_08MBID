@@ -155,6 +155,7 @@ ae1 <- geope_2023 %>%
   mutate( percent_number = percent( percent_time,accuracy = 1 ))
 view(ae1)
 
+### basic plot ## 
 # Basic Plot - no diverging
 ae1 %>%
   ggplot(aes(x = ALIMENTADOR,
@@ -211,6 +212,8 @@ ae1_good_labels <- ae1_diverging %>%
   mutate(percent_number = percent(percent_number, accuracy = 1))
 view(ae1_good_labels)
 
+######
+# Final Graphic
 # Basic Diverging with negative numbers
 ae1_good_labels %>%
   ggplot(aes(x = ALIMENTADOR,
@@ -242,6 +245,7 @@ ae1_good_labels %>%
          panel.grid = element_blank(),
          legend.position = "top")
 
+#######
 # 6  OECD - Japan Population
 japan_population <- c(104.665,106.100,107.595,109.104,110.573,111.940,113.094,114.165,115.190,116.155,117.060,117.902,118.728,119.536,120.305,121.049,121.660,122.239,122.745,123.205,123.611,124.101,124.567,124.938,125.265,125.570,125.864,126.166,126.486,126.686,126.926,127.291,127.435,127.619,127.687,127.768,127.901,128.033,128.084,128.032,128.057,127.834,127.593,127.414,127.237,127.095,127.042,126.919,126.749,126.555,126.146,125.502,124.947)
 year <- c(1970:2022)
@@ -272,5 +276,35 @@ ggplot(japan_population_millions, aes( x = year, y = japan_population))+
 ############
 #07 & 08  Hazards Circular - 
 # data form: https://www.esfi.org/electrical-fatalities-in-the-workplace-2011-2022/
+# 
+# Excel
 
-  
+
+#########
+# 09  Major / Minor
+#
+# Show difference between Corrective vs Preventive activities
+# - To Do:  Filter by dia_semana and Time of avtivity
+
+major_minor_activities <- geope_2023 %>% 
+  filter( CUENTA == "511.04.001") %>%
+  filter( CUADRILLA != "Líneas Energizadas (Cuadrilla  Nro.6)") %>%
+  # filter( `FECHA INICIO` > as.Date() )
+  filter( TIPO == "CORRECTIVO" | TIPO == "PREVENTIVO") %>%
+  group_by( CUADRILLA , TIPO  ) %>%
+  count( name = "t_mantenimiento", wt = MINUTOS ) %>%
+  mutate( t_mantenimiento = ceiling( t_mantenimiento / 60) )
+View(major_minor_activities)
+
+ggplot( major_minor_activities,
+        aes( x = CUADRILLA,
+             y = t_mantenimiento,
+             fill = TIPO)) +
+  geom_bar( stat = "identity",
+            position = "dodge")+
+  theme_minimal()+
+  labs( x = "\nCUADRILLAS",
+        y = "Tiempo en horas \n",
+        title = " Cantidad de horas dedicadas a actividades Correctivas y Preventivas en el 2023 \n",
+        caption = "Órdenes de Trabajo diarias (2023)") +
+  theme(plot.title = element_text(size = 18))
