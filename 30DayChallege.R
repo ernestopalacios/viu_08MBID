@@ -452,3 +452,13 @@ ggplot( herr_jzz,
     )
   )
 
+######
+# 12 Mobile
+
+mtto <- data.frame( one = 1, mantenimiento = 0.23)
+
+ggplot( mtto,
+        aes( x = mantenimiento,
+             y = 1 )) +
+  geom_col(fill = 'darkgreen', width = 0.6) 
+  
