@@ -256,7 +256,7 @@ japan_population_millions <- data.frame(year,japan_population)
 
 library(ggplot2)
 library(scales)
-#install.packages("ggpmisc")
+install.packages("ggpmisc")
 library(ggpmisc)
 
 ggplot(japan_population_millions, aes( x = year, y = japan_population))+

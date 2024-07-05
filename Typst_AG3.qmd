@@ -229,7 +229,7 @@ Una nueva presentación para la gráfica 01. Part to Hole
 
 **Herramienta:**
 
--   Excel 365
+-   PowerBI
 
     <div>
 
@@ -277,3 +277,39 @@ Una nueva presentación para la gráfica 01. Part to Hole
 {{< pagebreak >}}
 
 # Mobile friendly
+
+![Mobile - Avance semanal de actividades](images/11_Mobile_Friendly.png){width="7.4cm"}
+
+**Audiencia:**
+
+-   Personal administrativo.
+
+**Objetivo:**
+
+-   Informar al personal administrativo el avance semana de las labores planificadas y no planificadas.
+
+**Herramienta:**
+
+-   Excalidraw
+-   Referencia: Propia, diseño de una futura interfaz para la administración de los diferentes grupos de trabajo.
+
+{{< pagebreak >}}
+
+# good / bad
+
+**Audiencia:**
+
+-   Personal administrativo / directivo.
+
+**Objetivo:**
+
+-   Poner en conocimiento del personal administrativo - directivo, encargado de la contratación de mantenimiento el estado de las estructuras.
+-   Bridar al lector, de manera fácil y directa, detectar aquellas estructuras que requieren de mayor intervención y el detalle de los trabajos necesarios.
+-   Se ha codificado por colores los tipos de mantenimiento y se a apliado en la primera columna una resumen en colores de todas las novedades de la estructura.
+
+**Herramienta:**
+
+-   Excel
+-   Fuente: Propia, ordenes de trabajo del personal.
+
+![](images/27_good_bad.jpg){width="21cm"}
