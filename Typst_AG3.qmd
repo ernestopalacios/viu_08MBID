@@ -295,7 +295,7 @@ Una nueva presentación para la gráfica 01. Part to Hole
 
 {{< pagebreak >}}
 
-# good / bad
+# good / bad (27)
 
 **Audiencia:**
 
@@ -313,3 +313,24 @@ Una nueva presentación para la gráfica 01. Part to Hole
 -   Fuente: Propia, ordenes de trabajo del personal.
 
 ![](images/27_good_bad.jpg){width="21cm"}
+
+{{< pagebreak >}}
+
+# trend (28)
+
+![Seaborn - Trend](images/28_Trend_DengAI.png){width="18cm"}
+
+**Audiencia:**
+
+-   Cientificos de datos / Analistas de datos.
+
+**Objetivo:**
+
+-   Comprender la relación entre la predicción y los datos reales de casos de contagio de dengue.
+
+-   Bridar al lector, una idea del desempeño del modelo Machine Learning escogido.
+
+**Herramienta:**
+
+-   Python / Seaborn
+-   Fuente: Compentencia DengAI.
