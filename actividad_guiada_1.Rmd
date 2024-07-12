@@ -1,0 +1,13 @@
+---
+title: "Actividad Guiada 1"
+author: Dominic
+output: html_document
+date: "2024-03-12"
+---
+
+
+```{r, echo=FALSE, out.extra='style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay"'}
+
+knitr::include_url("https://docs.google.com/spreadsheets/d/e/2PACX-1vQCxIr2RPzfas8VgsmMSvso9C6B1jQKalaaVGSz5D18i_pnbtQKdSdD9TseYAFgqfls1Kx1b88xkbU8/pubchart?oid=719489157&amp;format=interactive", height = 405)
+
+```
