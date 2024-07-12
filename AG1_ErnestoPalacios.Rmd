@@ -1,15 +1,123 @@
 ---
 title: "Actividad Guiada 1"
-author: Ernesto Palacios
+author: Ernesto Vladimir Palacios Merino
 output: html_document
-date: now
-date-format: "MMM D, YYYY"
+date: "2024-07-12"
 
 ---
 
+# Carga de datos
 
-```{r, echo=FALSE, out.extra='style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay"'}
+Enlace al documento de Goole Sheets desde el cual se generaron los gráficos:
 
-knitr::include_url("https://docs.google.com/spreadsheets/d/e/2PACX-1vQCxIr2RPzfas8VgsmMSvso9C6B1jQKalaaVGSz5D18i_pnbtQKdSdD9TseYAFgqfls1Kx1b88xkbU8/pubchart?oid=719489157&amp;format=interactive", height = 405)
+[08MBID_AG1_ErnestoPalacios](https://docs.google.com/spreadsheets/d/1IxH6zkk3m_EHcHzKUthMNKhM8e19wkTMPLqu4Fv7bOM/edit?usp=sharing)
+
+
+---------------------
+
+
+# 1. Emisiones de CO^2^ (torta)
+
+```{r, echo=FALSE, out.width="75%", out.height="90%"  ,out.extra='style="border: 1px solid #464646;" allowfullscreen= True"" allow="autoplay"'}
+
+knitr::include_url("https://docs.google.com/spreadsheets/d/e/2PACX-1vTZUFypYqU9mo6MAVJQykbtOXSm-StnSavPxzYemilDzDgH27OPVCZoI07HygM9PiWjASIHyrHWuuVd/pubchart?oid=682431349&amp;format=interactive", height = 405 )
 
 ```
+
+## Gráfica de Torta
+
+No es la mejor opción para representar esta información debido a las siguientes razones
+
+- Se pierde la información de los países con mejor emisiones.
+- Demasiadas variables, existen demasiados paises en el listado.
+- No es fácil apreciar las proporciones entre países.
+
+# 2. Emisiones de CO^2^ (barras verticales)
+
+```{r, echo=FALSE, out.width="80%", out.height="100%"  ,out.extra='style="border: 1px solid #464646;" allowfullscreen= True"" allow="autoplay"'}
+
+knitr::include_url("https://docs.google.com/spreadsheets/d/e/2PACX-1vTZUFypYqU9mo6MAVJQykbtOXSm-StnSavPxzYemilDzDgH27OPVCZoI07HygM9PiWjASIHyrHWuuVd/pubchart?oid=687898174&amp;format=interactive", height = 425 )
+
+```
+
+## Gráfica de barras verticales
+
+No es la mejor opción para representar esta información debido a las siguientes razones
+
+- Los datos no se encuentran organizados en ningna secuencia.
+- La escala vertical no permite diferenciar los valores para los menores emisores
+- No se puede realizar comparaciones entre países con facilidad.
+- Las etiquetas inclinadas no facilitan la lectura.
+
+# 3. Emisiones de CO^2^ (ranking vertical)
+
+```{r, echo=FALSE, out.width="80%", out.height="100%"  ,out.extra='style="border: 1px solid #464646;" allowfullscreen= True"" allow="autoplay"'}
+
+knitr::include_url("https://docs.google.com/spreadsheets/d/e/2PACX-1vTZUFypYqU9mo6MAVJQykbtOXSm-StnSavPxzYemilDzDgH27OPVCZoI07HygM9PiWjASIHyrHWuuVd/pubchart?oid=2044182279&amp;format=interactive", height = 430 )
+
+```
+
+## Gráfica de ranking vertical
+
+No es la mejor opción para representar esta información debido a las siguientes razones
+
+- Ha mejorad respecto a las anteriores ya que se ha ordenado los países emisores.
+- Los países con muy bajas emisiones apenas y se distinguen del eje.
+- No se puede realizar comparaciones entre países con facilidad.
+- Las etiquetas inclinadas no facilitan la lectura.
+
+
+# 4. Emisiones CO^2^
+
+Top 10 Ranking de países emisores de CO^2^ al 2022
+
+```{r, echo=FALSE, out.width="80%", out.height="100%"  ,out.extra='style="border: 1px solid #464646;" allowfullscreen= True"" allow="autoplay"'}
+
+knitr::include_url("https://docs.google.com/spreadsheets/d/e/2PACX-1vTZUFypYqU9mo6MAVJQykbtOXSm-StnSavPxzYemilDzDgH27OPVCZoI07HygM9PiWjASIHyrHWuuVd/pubchart?oid=744844643&amp;format=interactive", height = 500 )
+
+```
+
+## Gráfica de ranking en barras horizontales
+
+En mi opinión **ésta es la mejor gráfica** para visualizar los datos debido a que:
+
+- Los datos se encuentran ordenados, facilitando identificar los mayores emisores.
+- Existen etiquetas para los datos, permitiendo conocer a detalle los valores. 
+- las barras horizontales se pueden comparar más facilmente que las verticales.
+- Facilidad de lectura de las etiquetas (nombres de países)
+
+
+---------------------
+
+# 5. Ampliación de la Práctica
+
+"Cotizaciones de los valores de dos empresas y los volúmenes del mercado en un marco temporal de 11 días"
+
+```{r, echo=FALSE, out.width="80%", out.height="100%"  ,out.extra='style="border: 1px solid #464646;" allowfullscreen= True"" allow="autoplay"'}
+
+knitr::include_url("https://docs.google.com/spreadsheets/d/e/2PACX-1vTZUFypYqU9mo6MAVJQykbtOXSm-StnSavPxzYemilDzDgH27OPVCZoI07HygM9PiWjASIHyrHWuuVd/pubchart?oid=1888219776&amp;format=interactive", height = 500 )
+
+```
+
+
+# 6. Datawrapper - Emisiones CO^2^
+
+
+
+```{r, echo=FALSE , out.extra='style="padding: 20px ; border: 1px solid #464646;" allowfullscreen= True"" allow="autoplay"'}
+
+knitr::include_url("https://datawrapper.dwcdn.net/tbZvh/1/", height = 600 )
+
+```
+
+# 7. Datawrapper - Top 10 emisores CO^2^
+
+
+```{r, echo=FALSE , out.extra='style="padding: 20px ; border: 1px solid #464646;" allowfullscreen= True"" allow="autoplay"'}
+
+knitr::include_url("https://datawrapper.dwcdn.net/k4t8V/1/", height = 520 )
+
+```
+
+
+

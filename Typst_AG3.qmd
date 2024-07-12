@@ -1,5 +1,5 @@
 ---
-title: "Trabajo Practico"
+title: "Trabajo Práctico"
 subtitle: "#30DayChartChallenge"
 
 date: now
@@ -254,6 +254,7 @@ Una nueva presentación para la gráfica 01. Part to Hole
 **Herramienta:**
 
 -   R `ggplot : grouped bar plot`
+-   Fuente: interna, EERSSA 2023
 
 {{< pagebreak >}}
 
@@ -292,6 +293,281 @@ Una nueva presentación para la gráfica 01. Part to Hole
 
 -   Excalidraw
 -   Referencia: Propia, diseño de una futura interfaz para la administración de los diferentes grupos de trabajo.
+
+{{< pagebreak >}}
+
+# Reuters Graphics
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# Family
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# Heatmap
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# Historical (15)
+
+![](images/15_Historical.png){width="18cm"}
+
+**Audiencia:**
+
+-   Público en general.
+
+**Objetivo:**
+
+-   Dar a conocer el cambio en la popularidad de los lenguajes de programación más usados.
+
+**Herramienta:**
+
+-   [Fluorish](https://app.flourish.studio/)
+-   Fuente: tiobe.com : [Top 10 programming languages of many years back.](https://www.tiobe.com/tiobe-index/)
+-   Publicación en línea: (<https://public.flourish.studio/visualisation/18701613/>)
+
+{{< pagebreak >}}
+
+# Weather
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# Networks
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# Asian Development Bank (18)
+
+![Data Day: Asian Develpment Bank](images/18_AsiaDevelopmentBank.png){width="19cm"}
+
+**Audiencia:**
+
+-   Público en general.
+
+**Objetivo:**
+
+-   Dar a conocer la recesión posterior recuperación a causa de la pandemia global de COVID-19.
+-   Dar a conocer el impacto de Asia en la enconomía global.
+
+**Herramienta:**
+
+-   DataWrapper, [(enlace a la publicación)](https://datawrapper.dwcdn.net/wE7YH/1/)
+-   Fuente: [Asia Development Bank](https://data.adb.org/media/12481/download)
+
+{{< pagebreak >}}
+
+# Dinosaurs
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# Correlation
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# Green energy
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# Mobility
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# Tiles
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# ILO Region Africa
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# Global change
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# ai (26)
+
+![Proyección de la demanda eléctrica en Datacenters de USA hasta el 2030](images/26_ai.png){width="18cm"}
+
+**Audiencia:**
+
+-   Público en general.
+
+**Objetivo:**
+
+-   Conocer la influencia del desarrollo de tecnologías en inteligencia artificial en la demanda eléctrica en datacenters de Estados Unidos.
+
+**Herramienta:**
+
+-   Fluorish
+-   Fuente: [2024 Electric Power Research Institute (EPRI)](https://www.wpr.org/wp-content/uploads/2024/06/3002028905_Powering-Intelligence_-Analyzing-Artificial-Intelligence-and-Data-Center-Energy-Consumption.pdf)
 
 {{< pagebreak >}}
 
@@ -334,3 +610,39 @@ Una nueva presentación para la gráfica 01. Part to Hole
 
 -   Python / Seaborn
 -   Fuente: Compentencia DengAI.
+
+{{< pagebreak >}}
+
+# Black'n'white
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< pagebreak >}}
+
+# FiveThirtyEight
+
+**Audiencia:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Objetivo:**
+
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+**Herramienta:**
+
+-   \_\_\_\_\_\_\_\_
+-   Fuente: \_\_\_\_\_\_\_\_\_\_\_\_\_
